@@ -9,7 +9,7 @@ tar -xzf golatex.tar.gz
 ```
 
 You can then run it like so:
-```console
+```shell
 ./golatex -p somefile.go
 ```
 
