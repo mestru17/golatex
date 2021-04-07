@@ -2,7 +2,7 @@ pygments is redistributed within all golatex release binaries.
 This license applies to the golatex binary included in the same
 directory as this license.
 
-Copyright (c) 2006-2021 by the respective authors (see AUTHORS file).
+Copyright (c) 2006-2021 by the respective authors (see PYGMENTS_AUTHORS file).
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
