@@ -1,31 +1,21 @@
 # golatex
 Converts Golang source code to fancvrb for inserting in LaTeX.
 
-## Usage
-Clone the repository:
+## Installation and Usage
+Simply download and extract the [latest release](https://github.com/mestru17/golatex/releases/latest/download/golatex.tar.gz):
 ```shell
-git clone https://github.com/mestru17/golatex.git
+curl -fsSLO https://github.com/mestru17/golatex/releases/latest/download/golatex.tar.gz
+tar -xzf golatex.tar.gz
 ```
 
-Install the dependencies from the cloned repo with pip:
-```shell
-cd golatex
-pip3 install -r requirements.txt
-```
-
-You can now run the script with either python:
-```shell
-python3 golatex somefile.go
-```
-or directly in the shell:
-```shell
-./golatex somefile.go
-```
-
-You will have to run it at least once with the `-p`/`--preamble` flag to generate the style setup to paste in your LaTeX preamble:
-```shell
+You can then run it like so:
+```console
 ./golatex -p somefile.go
 ```
+
+The `-p` flag instructs golatex to print the preamble style definitions that are needed in order to format the code environments in LaTeX.
+You only need to use it once and the copy the style definitions to your preamble.
+From then on, you can run the command without the flag and simply copy the output to your LaTeX documents.
 
 ## License
 golatex license (cf. [LICENSE.txt](LICENSE.txt)):
