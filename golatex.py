@@ -26,5 +26,8 @@ if __name__ == "__main__":
         print(formatter.get_style_defs())
         print("----------------------------------------------------------------")
 
-    with open(args.file, "r") as f:
-        print(highlight(f.read(), lexer, formatter))
+    try:
+        with open(args.file, "r") as f:
+            print(highlight(f.read(), lexer, formatter).strip())
+    except IOError as e:
+        print(f"Error reading file '{args.file}': {e}")
