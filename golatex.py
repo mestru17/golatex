@@ -18,13 +18,13 @@ if __name__ == "__main__":
     lexer = GoLexer()
     lexer.add_filter(VisibleWhitespaceFilter(tabs=" ", tabsize=2))
 
-    formatter = LatexFormatter(style=OneHalfLightStyle, linenos=True)
+    formatter = LatexFormatter(style=OneHalfLightStyle)
     if args.preamble:
-        print("# =========================")
-        print("# Put this in your preamble")
-        print("# =========================")
-        print(formatter.get_style_defs())
-        print("----------------------------------------------------------------")
+        print("% =========================")
+        print("% Put this in your preamble")
+        print("% =========================")
+        print(formatter.get_style_defs().strip())
+        print("----------------------------------------------------------------\n")
 
     try:
         with open(args.file, "r") as f:
