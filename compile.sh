@@ -26,10 +26,11 @@ header "Packing release..."
 ARCHIVE=golatex.tar.gz
 rm -f "$ARCHIVE"
 mv dist/golatex golatex
-tar -czf "$ARCHIVE" golatex LICENSE.txt LICENSE-3RD-PARTY.txt
+tar -czf "$ARCHIVE" golatex LICENSE.txt LICENSE-3RD-PARTY.txt PYGMENTS_AUTHORS
 header "${UGre}" "Created release archive: golatex.tar.gz"
 echo
 
 header "Cleaning up..."
 rm -rf build dist golatex.spec golatex
 header "${UGre}Done."
+
