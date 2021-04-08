@@ -26,6 +26,8 @@ header "Packing release..."
 ARCHIVE=golatex.tar.gz
 rm -f "$ARCHIVE"
 mv dist/golatex golatex
+mkdir -p bin
+cp golatex bin/golatex
 tar -czf "$ARCHIVE" golatex LICENSE.txt LICENSE-3RD-PARTY.txt PYGMENTS_AUTHORS
 header "${UGre}" "Created release archive: golatex.tar.gz"
 echo
