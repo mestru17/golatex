@@ -33,8 +33,6 @@ if __name__ == "__main__":
         if args.language
         else guess_lexer_for_filename(args.file, code)
     )
-
-    # lexer = get_lexer_by_name(args.language)
     lexer.add_filter(VisibleWhitespaceFilter(tabs=" ", tabsize=2))
 
     style = get_style_by_name(args.style)
@@ -47,8 +45,5 @@ if __name__ == "__main__":
         print(formatter.get_style_defs().strip())
         print("----------------------------------------------------------------\n")
 
-    try:
-        with open(args.file, "r") as f:
-            print(highlight(f.read(), lexer, formatter).strip())
-    except IOError as e:
-        print(f"Error reading file '{args.file}': {e}")
+    highlighted = highlight(code, lexer, formatter).strip().split("\n")
+    print("\n".join(highlighted[1 : len(highlighted) - 1]))
