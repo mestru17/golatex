@@ -5,20 +5,30 @@ import argparse
 from pygments import highlight
 from pygments.filters import VisibleWhitespaceFilter
 from pygments.formatters import LatexFormatter
-from pygments.lexers import GoLexer
+from pygments.lexers import get_lexer_by_name
+from pygments.util import ClassNotFound
 
 from styles.onehalf import OneHalfLightStyle
+
+def get_style_by_name(name: str):
+    if name == "onehalf":
+        return OneHalfLightStyle
+    raise ClassNotFound(f"No style matching name '{name}'")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="golatex")
     parser.add_argument("file", type=str)
     parser.add_argument("-p", "--preamble", action="store_true")
+    parser.add_argument("-l", "--language", type=str, default="go")
+    parser.add_argument("-s", "--style", type=str, default="onehalf")
     args = parser.parse_args()
 
-    lexer = GoLexer()
+    lexer = get_lexer_by_name(args.language)
     lexer.add_filter(VisibleWhitespaceFilter(tabs=" ", tabsize=2))
 
-    formatter = LatexFormatter(style=OneHalfLightStyle)
+    style = get_style_by_name(args.style)
+
+    formatter = LatexFormatter(style=style)
     if args.preamble:
         print("% =========================")
         print("% Put this in your preamble")
