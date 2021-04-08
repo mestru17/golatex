@@ -7,7 +7,7 @@ header()
     if [ "$#" -eq 2 ]; then
         COLOR="$2"
     else
-        COLOR="${UWhi}"
+        COLOR="${UBlu}"
     fi
     echo -e "$COLOR$1${RCol}"
 }
@@ -34,5 +34,5 @@ echo
 
 header "Cleaning up..."
 rm -rf build dist golatex.spec golatex
-header "${UGre}Done."
+header "${Gre}Done."
 
